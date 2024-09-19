@@ -1,0 +1,73 @@
+General Requirements
+
+	1.	The interface should allow admins to manage users by adding, editing, and filtering them.
+	2.	Users should be able to toggle between displaying and hiding disabled users.
+	3.	The interface will have components for creating new users and viewing a list of existing users.
+	4.	Validation should be applied on fields when creating or editing a user (e.g., required fields, correct email format).
+
+UI Components
+
+1. User List Table
+
+	•	Columns:
+	•	ID: Unique identifier for each user.
+	•	User Name: Displays the username of the user.
+	•	Email: Shows the email address of the user.
+	•	Enabled: Indicates whether the user is active (true/false).
+	•	Filter Options:
+	•	Filtering functionality for each column (e.g., by username, email, enabled status).
+	•	Checkbox - Hide Disabled Users:
+	•	This checkbox allows users to hide or show disabled users.
+	•	When checked, only users with Enabled = true will be displayed.
+
+2. New User Panel
+
+	•	Fields:
+	•	Username: A text field to input the username (required).
+	•	Display Name: A text field to input the full name of the user (optional).
+	•	Phone: A text field for entering the phone number (optional).
+	•	Email: A text field for entering the email address (required).
+	•	User Roles: A dropdown menu to assign a role to the user. Options are:
+	  + Guest
+		+ Admin
+		+ SuperAdmin
+	•	Enabled: A checkbox to mark the user as active or inactive (checked for active).
+	•	Buttons:
+    + New User: Opens a form in the “New User” panel for creating a new user.
+		+ Save User: Saves the new user or updates an existing user when clicked. Validates all required fields.
+
+
+Initial Page State
+
+	•	The page loads with all enabled users displayed.
+	•	The “Hide Disabled User” checkbox is checked by default.
+	•	The “New User” panel is collapsed or empty unless the “New User” button is clicked.
+
+Behavior
+
+1. Adding a New User
+
+	•	When the admin clicks the “New User” button:
+	•	The “New User” panel is shown, with all fields empty.
+	•	The “Save User” button is enabled when all the required fields are filled.
+	•	The admin fills in the required fields:
+		- The form is validated upon clicking “Save User.”
+		- If validation fails, an error message is displayed next to the corresponding field.
+		- If successful, the new user is added to the table, and the form is cleared.
+
+2. Editing a User
+
+	•	Admins can click on an existing user in the table to populate the “New User” panel with that user’s data.
+	•	The “Save User” button updates the user information in the system.
+	•	Once edited, the table is updated with the new values.
+
+3. Filtering Users
+
+	•	Admins can filter the list using the text inputs in each column header.
+  • When the admin clicks on the filtering symbol of each column, a text box opens in front of it to filter that column.
+	•	For example, typing in the “User Name” filter will show only users whose names match the typed value.
+
+4. Hiding Disabled Users
+
+	•	Checking the “Hide Disabled User” checkbox removes all users with Enabled as false from the list.
+	•	Unchecking the checkbox restores the full list, including disabled users.
